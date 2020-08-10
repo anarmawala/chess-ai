@@ -1,0 +1,27 @@
+name: Rust-CI
+
+# Run on push, pull or workflow_dispatch
+on: [push, pull_request, workflow_dispatch]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the project
+      - uses: actions/checkout@v2
+
+      # Lint the project
+      - name: Lint Project
+        run: cargo clippy --verbose
+
+      # Make sure the project builds
+      - name: Build Project
+        run: cargo build --verbose
+
+      # Make sure that all the tests pass
+      - name: Run tests
+        run: cargo test --verbose
