@@ -17,7 +17,6 @@ jobs:
       # Install build deps
       - name: Install pre-build/lint deps
         run: |
-          apt install pkg-config
           apt install libasound2-dev
       # Lint the project
       - name: Lint Project
