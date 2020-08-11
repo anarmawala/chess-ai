@@ -3,7 +3,7 @@ name = "chess-ai"
 version = "0.1.0"
 authors = ["Arshad Narmawala <arshadn00@gmail.com>", "Alex Chomiak <alex.chomiak@gmail.com>"]
 edition = "2018"
-
+keywords = ["chess", "ai", "algorithms", "tree", "min/max", "pruning"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
