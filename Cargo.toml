@@ -9,3 +9,6 @@ keywords = ["chess", "ai", "algorithms", "tree", "min/max", "pruning"]
 
 [dependencies]
 ggez = "0.5.1"
+
+[build-dependencies]
+pkg-config = "0.3.2"
