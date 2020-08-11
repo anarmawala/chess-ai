@@ -17,7 +17,7 @@ jobs:
       # Install build deps
       - name: Install pre-build/lint deps
         run: |
-          apt install libasound2-dev
+          sudo apt-get install libasound2-dev
       # Lint the project
       - name: Lint Project
         run: cargo clippy --verbose
