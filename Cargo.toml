@@ -8,5 +8,3 @@ keywords = ["chess", "ai", "algorithms", "tree", "min/max", "pruning"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ggez = "0.5.1"
-
