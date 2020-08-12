@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"rust-lang.rust",
+		"visualstudioexptteam.vscodeintellicode",
+		"esbenp.prettier-vscode",
+		"editorconfig.editorconfig",
+		"statiolake.vscode-rustfmt"
+	]
+}
