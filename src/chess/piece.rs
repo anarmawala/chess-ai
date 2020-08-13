@@ -7,10 +7,10 @@ use super::pieces::Pieces::{BISHOP, EMPTY, HORSE, KING, PAWN, QUEEN, ROOK};
 pub struct Piece {
     // * Piece's type and color
     color: Colors,
-    p_typ: Pieces,
+    title: Pieces,
 
     // * Piece game info
-    has_moved: bool,
+    moved: bool,
     value: i32,
 
     // * Location
@@ -19,28 +19,56 @@ pub struct Piece {
 }
 
 impl Piece {
-    pub fn new(color: Colors, p_typ: Pieces, row: usize, column: usize) -> Self {
-        let piece_value = match p_typ {
+    pub fn new(color: Colors, title: Pieces, row: usize, column: usize) -> Self {
+        // * Value of the piece
+        let _value = match title {
             PAWN => 1,
             QUEEN => 9,
             ROOK => 5,
             HORSE => 3,
             BISHOP => 3,
-            _ => 0,
+            EMPTY | KING => 0,
         };
 
+        // * Multiplier of the value to allow fro easy summation scoring
+        let _multiplier = match color {
+            WHITE => 1,
+            BLACK => -1,
+            NONE => 0,
+        };
+
+        // * Return the created Piece
         Piece {
-            has_moved: false,
+            moved: false,
             color,
-            p_typ,
+            title,
             row,
             column,
-            value: piece_value * if let BLACK = color { -1 } else { 1 },
+            value: _value * _multiplier,
         }
     }
 
-    // * Returns a tuple of the pieces colors, type, and location
-    pub fn get_info(&self) -> (Colors, Pieces, usize, usize, i32) {
-        (self.color, self.p_typ, self.row, self.column, self.value)
+    pub fn col(&self) -> usize {
+        self.column
+    }
+
+    pub fn color(&self) -> &Colors {
+        &self.color
+    }
+
+    pub fn title(&self) -> &Pieces {
+        &self.title
+    }
+
+    pub fn moved(&self) -> bool {
+        self.moved
+    }
+
+    pub fn value(&self) -> i32 {
+        self.value
+    }
+
+    pub fn row(&self) -> usize {
+        self.row
     }
 }

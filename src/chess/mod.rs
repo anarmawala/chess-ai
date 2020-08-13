@@ -26,7 +26,7 @@ impl Game {
             match _row {
                 2 | 7 => {
                     // ? Decide the color base on row number
-                    let _color = if _row == 1 { WHITE } else { BLACK };
+                    let _color = if _row <= 2 { WHITE } else { BLACK };
 
                     // * Add 8 pawns
                     for _i in 1..=8 {
@@ -35,7 +35,7 @@ impl Game {
                 }
                 1 | 8 => {
                     // ? Decide the color base on row number
-                    let _color = if _row == 0 { WHITE } else { BLACK };
+                    let _color = if _row <= 1 { WHITE } else { BLACK };
 
                     game_board.push(Piece::new(_color, ROOK, _row, 1));
                     game_board.push(Piece::new(_color, HORSE, _row, 2));
