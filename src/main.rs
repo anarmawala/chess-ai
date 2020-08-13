@@ -1,11 +1,12 @@
 mod chess;
 
 use chess::colors::Colors::{BLACK, NONE, WHITE};
+use chess::Game;
 
 fn main() {
-    let game: chess::Chess = chess::Chess::new(true, 5);
+    let game: Game = Game::new(true, 5);
 
-    let board = game.get_board();
+    let board = game.board();
 
     for _row in (0..8).rev() {
         for _column in 0..8 {
@@ -17,7 +18,7 @@ fn main() {
                 NONE => " ",
             };
 
-            print!("{:^5} ", info.4);
+            print!("{:^5} ", info.3);
         }
         println!("\n");
     }

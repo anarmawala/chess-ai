@@ -6,7 +6,7 @@ use colors::Colors::{BLACK, NONE, WHITE};
 use piece::Piece;
 use pieces::Pieces::{BISHOP, EMPTY, HORSE, KING, PAWN, QUEEN, ROOK};
 
-pub struct Chess {
+pub struct Game {
     // * Chess Board
     board: Vec<Piece>,
 
@@ -18,7 +18,7 @@ pub struct Chess {
     num_move: usize,
 }
 
-impl Chess {
+impl Game {
     // * Initialize the game board
     pub fn new(play_first: bool, difficulty: u8) -> Self {
         let mut game_board = Vec::new();
@@ -56,7 +56,7 @@ impl Chess {
             }
         }
 
-        Chess {
+        Game {
             player_white: play_first,
             difficulty,
             num_move: 0,
