@@ -1,10 +1,12 @@
-pub mod colors;
-pub mod piece;
-pub mod pieces;
+mod colors;
+mod piece;
+mod pieces;
 
-use colors::Colors::{BLACK, NONE, WHITE};
-use piece::Piece;
-use pieces::Pieces::{BISHOP, EMPTY, HORSE, KING, PAWN, QUEEN, ROOK};
+pub use colors::Colors;
+pub use colors::Colors::{BLACK, NONE, WHITE};
+pub use piece::Piece;
+pub use pieces::Pieces;
+pub use pieces::Pieces::{BISHOP, EMPTY, HORSE, KING, PAWN, QUEEN, ROOK};
 
 pub struct Game {
     // * Chess Board
