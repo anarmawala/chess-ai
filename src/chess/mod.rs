@@ -1,7 +1,9 @@
+mod change;
 mod colors;
 mod piece;
 mod pieces;
 
+pub use change::Change;
 pub use colors::Colors;
 pub use colors::Colors::{BLACK, NONE, WHITE};
 pub use piece::Piece;
@@ -13,7 +15,7 @@ pub struct Game {
 	board: Vec<Piece>,
 
 	// * Log of moves
-	moves: Vec<()>,
+	log: Vec<Change>,
 
 	// * Player preferences
 	player_white: bool,
@@ -32,26 +34,26 @@ impl Game {
 
 					// * Add 8 pawns
 					for _i in 1..=8 {
-						game_board.push(Piece::new(_color, PAWN, _row, _i))
+						game_board.push(Piece::new(_color, PAWN))
 					}
 				}
 				1 | 8 => {
 					// ? Decide the color base on row number
 					let _color = if _row <= 1 { WHITE } else { BLACK };
 
-					game_board.push(Piece::new(_color, ROOK, _row, 1));
-					game_board.push(Piece::new(_color, HORSE, _row, 2));
-					game_board.push(Piece::new(_color, BISHOP, _row, 3));
-					game_board.push(Piece::new(_color, QUEEN, _row, 4));
-					game_board.push(Piece::new(_color, KING, _row, 5));
-					game_board.push(Piece::new(_color, BISHOP, _row, 6));
-					game_board.push(Piece::new(_color, HORSE, _row, 7));
-					game_board.push(Piece::new(_color, ROOK, _row, 8));
+					game_board.push(Piece::new(_color, ROOK));
+					game_board.push(Piece::new(_color, HORSE));
+					game_board.push(Piece::new(_color, BISHOP));
+					game_board.push(Piece::new(_color, QUEEN));
+					game_board.push(Piece::new(_color, KING));
+					game_board.push(Piece::new(_color, BISHOP));
+					game_board.push(Piece::new(_color, HORSE));
+					game_board.push(Piece::new(_color, ROOK));
 				}
 				3 | 4 | 5 | 6 => {
 					// * Add 8 empty blocks
 					for _i in 1..=8 {
-						game_board.push(Piece::new(NONE, EMPTY, _row, _i))
+						game_board.push(Piece::new(NONE, EMPTY))
 					}
 				}
 				_ => panic!("Error, Chess only has eight rows"),
@@ -61,7 +63,7 @@ impl Game {
 		Game {
 			player_white: play_first,
 			difficulty,
-			moves: Vec::new(),
+			log: Vec::new(),
 			board: game_board,
 		}
 	}
