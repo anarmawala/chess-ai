@@ -1,12 +1,25 @@
-use super::piece::Piece;
+use super::{Colors, Pieces};
+
+#[derive(Copy, Clone)]
+pub enum Changes {
+	Capture,
+	EnPassant,
+	QCastle,
+	RCastle,
+	Promotion,
+}
 
 #[derive(Copy, Clone)]
 pub struct Change {
-    old_row: usize,
-    old_col: usize,
+	// * Location data
+	from_location: (usize, usize),
+	to_location: (usize, usize),
 
-    new_row: usize,
-    new_col: usize,
+	// * Color of piece making the move and type of move
+	color: Colors,
+	change: Changes,
 
-    piece: Piece,
+	// * Titles and which piece was captured
+	captured: Pieces,
+	titles: (Pieces, Pieces),
 }

@@ -2,17 +2,17 @@ use std::fmt;
 
 #[derive(Copy, Clone)]
 pub enum Colors {
-    WHITE,
-    BLACK,
-    NONE,
+	White,
+	Black,
+	None,
 }
 
 impl fmt::Debug for Colors {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match *self {
-            Colors::WHITE => write!(f, "W"),
-            Colors::BLACK => write!(f, "B"),
-            Colors::NONE => write!(f, " "),
-        }
-    }
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		match *self {
+			Colors::White => write!(f, "W"),
+			Colors::Black => write!(f, "B"),
+			Colors::None => write!(f, " "),
+		}
+	}
 }
